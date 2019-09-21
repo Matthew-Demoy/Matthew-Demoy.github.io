@@ -170,7 +170,7 @@ header {
         display: block;
         color: $base-color;
         padding: 10px;
-
+        
         &:hover {
             color: $base-color-hover;
             text-decoration: none;
@@ -197,6 +197,14 @@ header {
 #menu {
     &.active {
         display: block;
+    }
+
+    a{
+        margin: 0px; 
+        display: block; 
+        width: 100%; 
+        height: 100%;
+        z-index: 20;
     }
 }
 
@@ -332,7 +340,7 @@ footer {
         right: 0;
         margin: 0 auto;
         background: $base-color;
-    }
+    }    
 }
 
 .background-alt {
@@ -345,14 +353,41 @@ footer {
     --------------------------
 */
 
+#projectDisplay {
+    display: flex;
+    justify-content: center;
+    padding-top:50px;
+
+    .icon{
+        max-width:100%;
+        max-height:100%;
+        height: 100px;
+        width: 100px;
+    }
+    
+    h3, p{
+        color: white;
+        opacity: 0.5;
+        
+    }
+
+    div:hover {
+        p,h3 {
+            color: #fff;
+            opacity: 1;
+        }
+        
+      }
+
+}
+
 #lead {
-    position: relative;
     height: 100vh;
     min-height: 500px;
     max-height: 1080px;
     background: url(../images/lead-bg.jpg);
     background-size: cover;
-    padding: 15px;
+    padding: 0px;
     overflow: hidden;
 }
 
@@ -386,7 +421,7 @@ footer {
 }
 
 #lead-overlay {
-    position: absolute;
+    position: relative;
     height: 100%;
     width: 100%;
     top: 0;
@@ -394,7 +429,7 @@ footer {
     bottom: 0;
     left: 0;
     background: rgba($base-color-hover, 0.8);
-    z-index: 1;
+    z-index: 0;
 }
 
 #lead-down {
@@ -873,18 +908,26 @@ footer {
 // Medium Devices
 @media only screen and (max-width : 992px) {
 
+    #projectDisplay{
+        flex-wrap: wrap;
+    }
     #lead {
         height: auto;
         min-height: auto;
         max-height: auto;
-        padding: 100px 15px;
+        padding: 0px 0px;
     }
 
+    #lead-overlay{
+        padding: 15px 100px;
+    }
     #lead-content {
         position: relative;
         transform: none;
         left: auto;
         top: auto;
+        padding-top: 100px;
+        
 
         h1 {
             font-size: 3em;
